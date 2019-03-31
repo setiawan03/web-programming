@@ -1,0 +1,163 @@
+
+/* font */
+@font-face {
+    font-family: 'BebasNeue';
+    src: url(../fonts/BebasNeue-Regular.woff) format('woff');
+}
+
+/* style menu */
+body {
+    font: 18px/36px 'BebasNeue';
+    /* background-color: #ddd; */
+   
+}
+
+#background {
+    background-image: url(../img/background1.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+h1 {
+    font-size: 70px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: white;
+}
+
+h2 {
+    font-size: 70px;
+    padding: 70px 0;
+    text-align: center;
+    margin: auto;
+    color: white;
+    text-indent: -9999px;
+}
+
+.gallery li {
+    width: 120px;
+    height: 120px;
+    display: block;
+    /* overflow: hidden; */
+    border: 2px solid white;
+    float: left;
+    margin-right: 26px;
+    margin-top: 10px;
+    position: relative;
+}
+
+.gallery li,
+.gallery li a img,
+.gallery li span {
+    border-radius: 50%;
+}
+
+.gallery li span {
+    display: block;
+    width: 120px;
+    height: 120px;
+    background-color: rgba(200,200,200,.5);
+    position: absolute;
+    top: 0;
+    text-align: center;
+    line-height: 120px;
+    opacity: 0;
+    color: #333;
+    transform: scale(0) rotate(0);
+    text-shadow: 1px 1px 1px #ddd;
+    transition: .5s;
+}
+
+.gallery li a:hover span {
+    opacity: 1;
+    transform: scale(1) rotate(360deg);
+}
+
+.container {
+    width: 600px;
+    background-image: radial-gradient(circle farthest-side at top left,#43cbff,#9708cc);
+    margin: auto;
+    padding: 26px;
+    box-shadow: 0 0 2px 3px rgba(255, 255, 255, 0.932);
+    border-radius: 8px;
+}
+
+.clear {
+    clear: both;
+}
+
+/* overlay */
+.overlay {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 9999;
+    transition: 1s;
+    text-align: center; 
+    padding: 60px;
+}
+
+.overlay:target {
+    width: auto;
+    height: auto;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, .7);
+}
+
+.overlay img {
+    max-height: 100%;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, .5);   
+}
+
+.overlay:target img {
+    animation: overzoom .8s;
+}
+
+.overlay .close {
+    position: absolute;
+    top: 35px;
+    left: 50%;
+    margin-left: -20px;
+    color: white;
+    background-image: radial-gradient(circle farthest-side at top left,#2575fc,#6a11cb);
+    padding: 6px;
+    line-height: 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    opacity: 0;
+}
+
+.overlay:target .close {
+    animation: overdown 1s .2s forwards;
+}
+
+/* Animasi */
+@keyframes overzoom {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes overdown {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+ 
